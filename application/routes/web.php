@@ -23,4 +23,10 @@ Route::get('account/active/{token}', 'Auth\AccountActivationController@active');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('dashboard', 'DashboardController@index');
+
+//Resume
+Route::get('resumes', 'ResumeController@index');
+
+//user
+Route::any('profile', 'UserController@profile');

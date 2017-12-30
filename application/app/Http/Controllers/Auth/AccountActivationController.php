@@ -39,7 +39,7 @@ class AccountActivationController extends Controller
                 
                 User::setLoginSession();
 
-                return redirect('home');
+                return redirect('dashboard');
             }else{
                 $message = message('danger','info-circle', 'Account Activation: Invalid Request.');
                 session()->flash('flash-message',$message);

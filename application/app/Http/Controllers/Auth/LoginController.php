@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -75,7 +75,7 @@ class LoginController extends Controller
                 $user->last_login_ip = $_SERVER['REMOTE_ADDR'];
                 $user->save();
 
-                return redirect('home');
+                return redirect('dashboard');
             }else{
                 $message = message('danger','info-circle', 'Invalid email or password.');
                 session()->flash('flash-message',$message);

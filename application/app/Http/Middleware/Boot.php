@@ -20,7 +20,7 @@ class Boot
         $themeAssets = $assets.'/admin-lte-2.4.2';
 
         $appName = env('APP_NAME');
-        $appShortName = "MA";
+        $appShortName = "CM";
         $appLogo = $assets."/images/logo.png";
         $appFavicon = $assets."/images/favicon.png";
 

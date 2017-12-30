@@ -135,3 +135,11 @@ function notify2Slack($type, $data){
     }
     return;
 }
+
+function getProfilePhoto(){
+    if(!empty(Auth::user()->photo)){
+        return url(Auth::user()->photo);
+    }else{
+        return url(config('constants.default.profile_photo'));
+    }
+}
