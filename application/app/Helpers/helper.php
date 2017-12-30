@@ -1,6 +1,12 @@
 <?php
 
 use App\Country;
+
+function message($class, $icon_class = "", $message, $close_button = false) {
+    $icon = $icon_class != "" ? "<i class='fa fa-$icon_class'></i>" : "";
+    return "<div id='confirmation_message' class='tg-alert alert alert-".$class." fade in'>" . $icon .'<a href="#" class="close" data-dismiss="alert">×</a> '. $message . "</div>";
+}
+
 /**
  * We will use this function for styling validation error message
  * @param string

@@ -10,6 +10,8 @@
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
+        
+        {!! session('flash-message') !!}
 
         <form method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
