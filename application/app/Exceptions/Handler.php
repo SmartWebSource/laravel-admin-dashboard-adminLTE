@@ -36,6 +36,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        //notify2Slack('exception', $exception);
         parent::report($exception);
     }
 

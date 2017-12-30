@@ -7,11 +7,12 @@
     "require": {
         "php": ">=7.0.0",
         "fideloper/proxy": "~3.3",
+        "firebase/php-jwt": "^5.0",
+        "google/recaptcha": "^1.1",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "mizanur/slack-notifier": "^1.0",
-        "firebase/php-jwt": "^5.0",
-        "google/recaptcha": "^1.1"
+        "laravelcollective/html": "^5.5",
+        "mizanur/slack-notifier": "^1.4"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -22,11 +23,17 @@
     "autoload": {
         "classmap": [
             "database/seeds",
-            "database/factories"
+            "database/factories",
+            "app/Helpers/Classes"
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "app/Helpers/helper.php",
+            "app/Helpers/auth.php",
+            "app/Helpers/app-settings.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
