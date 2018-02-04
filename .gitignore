@@ -2,3 +2,5 @@ application/vendor
 application/.env
 application/composer.lock
 application/uploads
+/nbproject/private/
+nbproject/

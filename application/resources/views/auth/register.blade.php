@@ -18,7 +18,7 @@
         <form method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
             <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" required autofocus>
+                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" required>
                 @if ($errors->has('name'))
                     <span class="validation-error">{{ $errors->first('name') }}</span>
                 @endif
@@ -41,7 +41,7 @@
             </div>
 
             <div class="form-group has-feedback {{ $errors->has('phone') ? ' has-error' : '' }}">
-                <input id="phone" type="number" class="form-control"  maxlength="13" name="phone" value="{{ old('phone') }}" placeholder="Phone" required autofocus>
+                <input id="phone" type="number" class="form-control"  maxlength="13" name="phone" value="{{ old('phone') }}" placeholder="Phone" required>
                 <span class="fa fa-phone form-control-feedback"></span>
                 @if ($errors->has('phone'))
                     <span class="validation-error">{{ $errors->first('phone') }}</span>

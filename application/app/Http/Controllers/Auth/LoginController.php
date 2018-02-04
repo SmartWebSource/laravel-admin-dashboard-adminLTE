@@ -4,24 +4,24 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
 use \Illuminate\Http\Request;
-use Auth, Carbon, Validator;
+use Auth,
+    Carbon,
+    Validator;
 
-class LoginController extends Controller
-{
+class LoginController extends Controller {
     /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+      |--------------------------------------------------------------------------
+      | Login Controller
+      |--------------------------------------------------------------------------
+      |
+      | This controller handles authenticating users for the application and
+      | redirecting them to your home screen. The controller uses a trait
+      | to conveniently provide its functionality to your applications.
+      |
+     */
 
-    use AuthenticatesUsers;
+use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -35,21 +35,20 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(Request $request){
+    public function login(Request $request) {
 
-        if($request->isMethod('post')){
+        if ($request->isMethod('post')) {
             $rules = [
                 'email' => 'required|string',
                 'password' => 'required|string',
             ];
 
             $validator = Validator::make($request->all(), $rules);
-            if($validator->fails()) {
+            if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator->errors())->withInput($request->all());
             }
 
@@ -58,10 +57,10 @@ class LoginController extends Controller
 
                 $user = Auth::user();
 
-                if(!$user->active){
+                if (!$user->active) {
                     Auth::logout();
-                    $message = message('danger','info-circle', 'Your account is not active yet.');
-                    session()->flash('flash-message',$message);
+                    $message = message('danger', 'info-circle', 'Your account is not active yet.');
+                    session()->flash('flash-message', $message);
                     return redirect()->back()->withInput($request->all());
                 }
 
@@ -76,21 +75,21 @@ class LoginController extends Controller
                 $user->save();
 
                 return redirect('dashboard');
-            }else{
-                $message = message('danger','info-circle', 'Invalid email or password.');
-                session()->flash('flash-message',$message);
+            } else {
+                $message = message('danger', 'info-circle', 'Invalid email or password.');
+                session()->flash('flash-message', $message);
                 return redirect()->back()->withInput($request->all());
             }
-
-        }else{
+        } else {
             return view('auth.login');
         }
     }
 
-    public function logout(Request $request){
-        
+    public function logout(Request $request) {
+
         Auth::logout();
         $request->session()->invalidate();
         return redirect('login');
     }
+
 }

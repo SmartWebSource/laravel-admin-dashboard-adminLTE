@@ -17,7 +17,7 @@
 
             <input type="hidden" name="token" value="{{ $token }}">
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
-                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" placeholder="Email" required autofocus>
+                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" placeholder="Email" required>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 @if ($errors->has('email'))
                     <span class="validation-error">{{ $errors->first('email') }}</span>
