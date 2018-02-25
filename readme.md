@@ -6,7 +6,7 @@ I have configured Laravel 5.5 with AdminLTE theme
 
 - User login
 - User registration with reCAPTCHA
-- User activation link after new login
+- User activation link after new registration
 - Pretty email template for password reset and user activation
 - User dashboard
 - User profile update
